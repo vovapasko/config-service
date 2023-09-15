@@ -24,6 +24,7 @@ extra["springCloudVersion"] = "2022.0.4"
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.cloud:spring-cloud-config-server")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -47,4 +48,5 @@ tasks.withType<Test> {
 tasks.getByName<BootBuildImage>("bootBuildImage") {
     imageName = project.name
     environment = mapOf("BP_JVM_VERSION" to "17.*")
+    version = "latest"
 }
